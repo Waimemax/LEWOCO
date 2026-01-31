@@ -1,0 +1,160 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background-color: rgb(78, 162, 110);
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: azure;
+   
+}
+.logo-image{
+    width: 50px; 
+    height: 50px;
+}
+/* NAV LINKS CONTAINER */
+.navlinks {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* ALL LINKS */
+.navlinks a {
+  text-decoration: none;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 1.1rem;
+  color: #222;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* HOVER EFFECT (underline slide) */
+.navlinks a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background-color: #2f7d4e;
+  transition: width 0.3s ease;
+}
+
+.navlinks a:hover {
+  color: #2f7d4e;
+}
+
+.navlinks a:hover::after {
+  width: 100%;
+}
+
+/* ORDER NOW BUTTON STYLE */
+.navlinks a:last-child {
+  background-color: #2f7d4e;
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 25px;
+  font-weight: 600;
+}
+
+.navlinks a:last-child::after {
+  display: none;
+}
+
+.navlinks a:last-child:hover {
+  background-color: #25653e;
+  color: #fff;
+}
+
+/* ABOUT CONTAINER */
+.about-container {
+  max-width: 900px;
+  margin: 80px auto;          /* centers horizontally + space top/bottom */
+  padding: 40px 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+/* Main heading */
+.about-container h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* Intro text */
+.about-container .intro {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  margin-bottom: 50px;
+  color: #444;
+}
+
+/* Individual sections */
+.about-section {
+  margin-bottom: 40px;
+  padding: 25px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+}
+
+/* Section headings */
+.about-section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #2f7d4e; /* matches food/brand vibe */
+}
+
+/* Section text */
+.about-section p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 2rem;
+  background-color: rgb(78, 162, 110);
+  color: white;
+}
+
+/* Contact info in a horizontal line */
+.footer-contact {
+  display: flex;
+}
+
+.footer-contact p {
+  padding: 0 1rem;
+  border-right: 1px solid #555;
+  margin: 0;
+}
+
+/* Remove line after last item */
+.footer-contact p:last-child {
+  border-right: none;
+}
+
+/* Social icons take remaining space */
+.footer-socials {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.footer-socials a {
+  color: white;
+  font-size: 22px;
+}
+
+.footer-socials a:hover {
+  color: #8d0c0c;
+}

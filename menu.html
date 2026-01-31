@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu</title>
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+      <a href="cart.html" class="cart-link">🛒 View Cart</a>
+    <div class="logo">
+        <a href="home.html">
+            <img src="Images/logo.svg" class="logo-image" style="width: 50px; height: 50px;"  alt="logo-image">
+        </a>
+        <h1>Chakula Chap</h1>
+    </div>
+    <div class="navlinks">
+        <a href="home.html">Home</a>
+        <a href="aboutus.html">About us</a>
+        <a href="contact.html">Contact us</a>
+        <a href="services.html">Services</a>
+        <a href="menu.html">Order now</a>
+        <a href="menu.html">Menu</a>
+   </div>
+   </nav>
+
+   <section class="menu-container">
+    <h1 class="menu-title">Our Menu</h1>
+
+    <!-- BURGERS -->
+    <div class="menu-section">
+      <h2>Burgers</h2>
+      <img src="Images/burgermenu.png" class="burgers" alt="Burgers">
+      <p>
+        Our burgers are made using fresh buns, juicy patties, and carefully selected toppings.
+        Choose from classic beef, crispy chicken, or our signature house burgers — each bite is
+        packed with bold flavor and satisfaction.
+      </p>
+      <a href="#burgers" class="menu-btn">Order Burgers</a>
+
+    </div>
+
+    <!-- CHICKEN & FRIES COMBOS -->
+    <div class="menu-section">
+      <h2>Chicken & Fries Combos</h2>
+      <img src="Images/wingsfries.jpg" class="wingsfries" alt="Chicken and Fries Combo">
+      <p>
+        Enjoy perfectly seasoned chicken served with crispy golden fries.
+        Our combos are ideal for lunch, dinner, or takeaway, offering great value
+        and balanced portions that keep you full.
+      </p>
+      <a href="#fries" class="menu-btn">Order Fries</a>
+
+    </div>
+
+    <!-- SHAWARMA COMBOS -->
+    <div class="menu-section">
+      <h2>Shawarma </h2>
+      <img src="Images/shawarma1.jpg" class="shawarma" alt="Shawarma Combo">
+      <p>
+        Our shawarma combos come loaded with tender, well-spiced meat,
+        fresh vegetables, and sauces, served with a side drink to complete
+        the meal. Perfect for fast, flavorful satisfaction.
+      </p>
+      <a href="#shawarma" class="menu-btn">Order Shawarma</a>
+    </div>
+
+  </section>
+
+<!-- Special Combos Section -->
+<section class="special-combos">
+
+  <h1 class="menu-title">Our Special Combos</h1>
+
+  <!-- Combo 1 -->
+  <div class="combo-card">
+    <div class="combo-info">
+      <h2>Shawarma Combo</h2>
+      <p>
+        A delicious, fully loaded shawarma served with crispy fries and an ice-cold canned soda.
+        Perfect for a quick, satisfying meal packed with flavor.
+      </p>
+      <a href="#shawarma" class="menu-btn">Order Shawarma</a>
+    </div>
+
+    <div class="combo-image">
+      <img src="Images/shawarmacombo1.avif" class="shawarmacombo" alt="Shawarma, fries and soda combo">
+    </div>
+  </div>
+
+  <!-- Combo 2 -->
+  <div class="combo-card">
+    <div class="combo-info">
+      <h2>Burger Combo</h2>
+      <p>
+        A juicy signature burger paired with golden fries and a chilled canned soda.
+        A classic combo that never disappoints.
+      </p>
+      <a href="#combos" class="menu-btn">Order Burgers</a>
+    </div>
+
+    <div class="combo-image">
+      <img src="Images/burgercombo2.webp" class="burgercombo" alt="Burger, fries and soda combo">
+    </div>
+  </div>
+
+</section>
+<!-- End Special Combos Section -->
+
+
+<section id="burgers" class="menu-section">
+  <h2>Burgers</h2>
+  <div class="burger-items">
+    <div class="menuitem">
+      <img src="Images/burgermenu6.webp" alt="Classic Cheese Burger">
+      <h3>Classic Cheese Burger</h3>
+      <p>Juicy beef patty, lettuce, tomato & sauce.</p>
+      <span class="price">KES 550</span>
+      <button
+  class="add-cart"
+  data-id="burger-classic"
+  data-name="Classic Cheese Burger"
+  data-price="550"
+  data-image="Images/burgermenu6.webp"
+>
+  Add to Cart
+</button>
+    </div>
+
+    <div class="menuitem">
+      <img src="Images/burgermenu2.png" alt="Veggie Burger">
+      <h3>Veggie Burger</h3>
+      <p>Hearty vegan patty with fresh vegetables and savory sauce.</p>
+      <span class="price">KES 500</span>
+      <button
+  class="add-cart"
+  data-id="burger-veggie"
+  data-name="Veggie Burger"
+  data-price="500"
+  data-image="Images/burgermenu2.png"
+>
+  Add to Cart
+</button>
+    </div>
+
+    <div class="menuitem">
+      <img src="Images/burgermenu1.jpg" alt="Chicken Burger">
+      <h3>Chicken Burger</h3>
+      <p>Crispy chicken fillet with special sauce and fresh veggies.</p>
+      <span class="price">KES 500</span>
+      <button
+  class="add-cart"
+  data-id="burger-chicken"
+  data-name="Chicken Burger"
+  data-price="500"
+  data-image="Images/burgermenu1.jpg"
+>
+  Add to Cart
+</button>
+    </div>
+
+    <div class="menuitem">
+      <img src="Images/beefburger.jpg" alt="Double Beef Burger">
+      <h3>Double Beef Burger</h3>
+      <p>Two beef patties stacked with cheese, lettuce & tomato.</p>
+      <span class="price">KES 650</span>
+      <button
+  class="add-cart"
+  data-id="burger-double"
+  data-name="Double Beef Burger"
+  data-price="650"
+  data-image="Images/beefburger.jpg"
+>
+  Add to Cart
+</button>
+  </div>
+</section>
+
+
+<section id="fries" class="menu-section">
+  <h2>Fries</h2>
+  <div class="fries-items">
+    <div class="menuitem">
+      <img src="Images/classicfries.jpg" alt="Classic Fries">
+      <h3>Classic Fries</h3>
+      <p>Golden, crispy, lightly salted.</p>
+      <span class="price">KES 250</span>
+      <button
+  class="add-cart"
+  data-id="fries-classic"
+  data-name="Classic Fries"
+  data-price="250"
+  data-image="Images/classicfries.jpg"
+>
+  Add to Cart
+</button>
+    </div>
+
+    <div class="menuitem">
+      <img src="Images/cheesyfries.png" alt="Cheesy Fries">
+      <h3>Cheesy Fries</h3>
+      <p>Fries topped with melted cheddar cheese and herbs.</p>
+      <span class="price">KES 300</span>
+     <button
+  class="add-cart"
+  data-id="fries-cheesy"
+  data-name="Cheesy Fries"
+  data-price="300"
+  data-image="Images/cheesyfries.png"
+>
+  Add to Cart
+</button>
+    </div>
+
+    <div class="menuitem">
+      <img src="Images/wingsfries2.jpg" alt="Fries Combo">
+      <h3>Fries Combo</h3>
+      <p>Fries served with your choice of drink.</p>
+      <span class="price">KES 350</span>
+      <button
+  class="add-cart"
+  data-id="fries-combo"
+  data-name="Fries Combo"
+  data-price="350"
+  data-image="Images/wingsfries2.jpg"
+>
+  Add to Cart
+</button>
+</div>
+</section>
+
+
+<section id="shawarma" class="menu-section">
+  <h2>Shawarma</h2>
+  <div class="shawarma-items">
+    <div class="menuitem">
+      <img src="Images/shawarma.jpg" alt="Beef Shawarma">
+      <h3>Beef Shawarma</h3>
+      <p>Marinated beef, fresh veggies & sauce.</p>
+      <span class="price">KES 450</span>
+      <button
+  class="add-cart"
+  data-id="beef-shawarma"
+  data-name="Beef Shawarma"
+  data-price="450"
+  data-image="Images/shawarma.jpg"
+>
+  Add to Cart
+</button>
+</div>
+<div class="menuitem">
+      <img src="Images/chickenshawarma.webp" alt="Chicken Shawarma">
+      <h3>Chicken Shawarma</h3>
+      <p>Marinated chicken, fresh veggies & sauce.</p>
+      <span class="price">KES 450</span>
+  <button
+  class="add-cart"
+  data-id="chicken-shawarma"
+  data-name="Chicken Shawarma"
+  data-price="450"
+  data-image="Images/chickenshawarma.webp"
+>
+  Add to Cart
+</button>
+</div>
+
+    <div class="menuitem">
+      <img src="Images/shawarmacombo.webp" alt="Shawarma Combo">
+      <h3>Shawarma Combo</h3>
+      <p>Shawarma served with fries & a drink.</p>
+      <span class="price">KES 600</span>
+      <button
+  class="add-cart"
+  data-id="shawarma-combo"
+  data-name="Shawarma Combo"
+  data-price="600"
+  data-image="Images/shawarmacombo.webp"
+>
+  Add to Cart
+</button>
+</div>
+</div>
+</section>
+
+
+<section id="combos" class="menu-section">
+  <h2>Combos</h2>
+  <div class="combo-items">
+    <div class="menuitem">
+      <img src="Images/burgercombo2.webp" alt="Burger Combo">
+      <h3>Burger Combo</h3>
+      <p>Burger, fries & canned soda.</p>
+      <span class="price">KES 750</span>
+      <button
+  class="add-cart"
+  data-id="burger-combo-1"
+  data-name="Burger Combo"
+  data-price="750"
+  data-image="Images/burgercombo2.webp"
+>
+  Add to Cart
+</button>
+  </div>
+
+    <div class="menuitem">
+      <img src="Images/burgercombo1.jpg" alt="Burger Combo">
+      <h3>Burger Combo</h3>
+      <p>Burger, fries & canned soda.</p>
+      <span class="price">KES 750</span>
+      <button
+  class="add-cart"
+  data-id="burger-combo-2"
+  data-name="Burger Combo"
+  data-price="750"
+  data-image="Images/burgercombo1.jpg"
+>
+  Add to Cart
+</button>
+    </div>
+
+    <div class="menuitem">
+      <img src="Images/burgercombo.jpg" alt="Burger Combo">
+      <h3>Burger Combo</h3>
+      <p>Burger, fries & canned soda.</p>
+      <span class="price">KES 750</span>
+      <button
+  class="add-cart"
+  data-id="burger-combo-3"
+  data-name="Burger Combo"
+  data-price="750"
+  data-image="Images/burgercombo.jpg"
+>
+  Add to Cart
+</button>
+    </div>
+
+    <div class="menuitem">
+      <img src="Images/shawarmacombo.webp" alt="Shawarma Combo">
+      <h3>Shawarma Combo</h3>
+      <p>Beef or chicken shawarma with fries & a drink.</p>
+      <span class="price">KES 800</span>
+      <button
+  class="add-cart"
+  data-id="shawarma-combo-1"
+  data-name="Shawarma Combo"
+  data-price="800"
+  data-image="Images/shawarmacombo.webp"
+>
+  Add to Cart
+</button>
+</div>
+</div>
+</section>
+
+
+<section id="daily-drinks" class="menu-section daily-drinks">
+  <h2>Daily Drinks </h2>
+  <div class="daily-drinks-items">
+    <div class="menuitem">
+      <img src="Images/cocktailjuice1.jpg" alt="Cocktail">
+      <h3>Cocktail</h3>
+      <p>Refreshing fruit cocktail with a hint of mint.</p>
+      <span class="price">KES 200</span>
+      <button
+  class="add-cart"
+  data-id="cocktail"
+  data-name="Cocktail"
+  data-price="200"
+  data-image="Images/cocktailjuice1.jpg"
+>
+  Add to Cart
+</button>
+    </div>
+
+    <div class="menuitem">
+      <img src="Images/juice.jpg" alt="Fresh Juice">
+      <h3>Fresh Juice</h3>
+      <p>Freshly squeezed orange or mango juice.</p>
+      <span class="price">KES 180</span>
+      <button
+  class="add-cart"
+  data-id="fresh-juice"
+  data-name="Fresh Juice"
+  data-price="200"
+  data-image="Images/juice.jpg"
+>
+  Add to Cart
+</button>
+    </div>
+
+    <div class="menuitem">
+      <img src="Images/soda.webp" alt="Canned Soda">
+      <h3>Canned Soda</h3>
+      <p>Chilled soft drinks in various flavors.</p>
+      <span class="price">KES 150</span>
+      <button
+  class="add-cart"
+  data-id="canned-soda"
+  data-name="Canned soda"
+  data-price="150"
+  data-image="Images/soda.webp"
+>
+  Add to Cart
+</button>
+    </div>
+
+    <div class="menuitem">
+      <img src="Images/smoothie.webp" alt="Smoothie">
+      <h3>Smoothie</h3>
+      <p>Creamy fruit smoothie with your choice of berries or banana.</p>
+      <span class="price">KES 250</span>
+      <button
+  class="add-cart"
+  data-id="smoothie"
+  data-name="Smoothie"
+  data-price="250"
+  data-image="Images/smoothie.webp"
+>
+  Add to Cart
+</button>
+  </div>
+  </div>
+</section>
+
+
+<section id="daily-specials" class="menu-section daily-specials">
+  <h2>Daily Specials</h2>
+  <div class="daily-specials-items">
+    <div class="menuitem">
+      <img src="Images/special1.webp" alt="Special 1">
+      <h3>Spicy Chicken Wrap</h3>
+      <p>Delicious chicken wrap with fries.</p>
+      <span class="price">KES 500</span>
+      <button
+  class="add-cart"
+  data-id="spicy-chicken-wrap"
+  data-name="Spicy Chicken Wrap"
+  data-price="500"
+  data-image="Images/special1.webp"
+>
+  Add to Cart
+</button>
+    </div>
+
+    <div class="menuitem">
+      <img src="Images/special2.jpg" alt="Special 2">
+      <h3>Veggie Delight Burger</h3>
+      <p>Loaded with fresh veggies & sauces.</p>
+      <span class="price">KES 450</span>
+      <button
+  class="add-cart"
+  data-id="veggie-delight-burger"
+  data-name="Veggie Delight Burger"
+  data-price="500"
+  data-image="Images/special2.jpg"
+>
+  Add to Cart
+</button>
+    </div>
+
+    <div class="menuitem">
+      <img src="Images/special3.webp" alt="Special 3">
+      <h3>Shawarma Feast</h3>
+      <p>Beef & chicken shawarma with fries & drink.</p>
+      <span class="price">KES 600</span>
+      <button
+  class="add-cart"
+  data-id="shawarma-feast"
+  data-name="Shawarma Feast"
+  data-price="600"
+  data-image="Images/special3.webp"
+>
+  Add to Cart
+</button>
+  </div>
+
+    <div class="menuitem">
+      <img src="Images/special4.jpg" alt="Special 4">
+      <h3>Sweet Treat Shake</h3>
+      <p>Creamy chocolate milkshake with toppings.</p>
+      <span class="price">KES 250</span>
+      <button
+  class="add-cart"
+  data-id="sweet-treat-shake"
+  data-name="Sweet Treat Shake"
+  data-price="250"
+  data-image="Images/special4.jpg"
+>
+  Add to Cart
+</button>
+</div>
+</div>
+</section>
+
+ 
+<div class="footer-container">
+
+    <!-- Contact Info -->
+<footer class="footer">
+  <div class="footer-contact">
+    <p>Phone: +254 712 345 678</p>
+    <p>Email: chakulachap@fastbite.com</p>
+    <p>Location: Nairobi, Kenya</p>
+  </div>
+
+  <div class="footer-socials">
+    <a href="https://facebook.com/yourpage" target="_blank">
+      <i class="fa-brands fa-facebook"></i>
+    </a>
+    <a href="https://instagram.com/yourpage" target="_blank">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a href="https://tiktok.com/@yourpage" target="_blank">
+  <i class="fa-brands fa-tiktok"></i>
+</a>
+
+<a href="https://twitter.com/yourpage" target="_blank">
+  <i class="fa-brands fa-x-twitter"></i>
+</a>
+  </div>
+  <!-- Bottom Footer -->
+  <div class="footer-bottom">
+    <p>© 2026 FastBite. All rights reserved.</p>
+  </div>
+</footer>
+<script src="script.js"></script>
+<script src="menu.js"></script>
+
+</body>
+</html>

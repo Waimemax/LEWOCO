@@ -1,0 +1,262 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background-color: rgb(78, 162, 110);
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: azure;
+   
+}
+.logo-image{
+    width: 50px; 
+    height: 50px;
+}
+/* NAV LINKS CONTAINER */
+.navlinks {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* ALL LINKS */
+.navlinks a {
+  text-decoration: none;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 1.1rem;
+  color: #222;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* HOVER EFFECT (underline slide) */
+.navlinks a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background-color: #2f7d4e;
+  transition: width 0.3s ease;
+}
+
+.navlinks a:hover {
+  color: #2f7d4e;
+}
+
+.navlinks a:hover::after {
+  width: 100%;
+}
+
+/* ORDER NOW BUTTON STYLE */
+.navlinks a:last-child {
+  background-color: #2f7d4e;
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 25px;
+  font-weight: 600;
+}
+
+.navlinks a:last-child::after {
+  display: none;
+}
+
+.navlinks a:last-child:hover {
+  background-color: #25653e;
+  color: #fff;
+}
+
+/* CONTACT PAGE WRAPPER */
+.contact-page {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 20px;
+  font-family: "Poppins", Arial, sans-serif;
+  color: #222;
+}
+
+/* SECTION SPACING */
+.contact-page section {
+  margin-bottom: 60px;
+}
+
+/* INTRO */
+.contact-intro {
+  text-align: center;
+}
+
+.contact-intro h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  color: #2f7d4e;
+}
+
+.contact-intro p {
+  font-size: 1.3rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* SECTION HEADINGS */
+.contact-page h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #2f7d4e;
+}
+
+/* TEXT */
+.contact-page p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+/* LISTS */
+.contact-page ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-page ul li {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* CONTACT INFO + HOURS CARD STYLE */
+.contact-info,
+.contact-hours,
+.contact-socials {
+  background-color: #f8f8f8;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+/* CONTACT FORM */
+.contact-form {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.contact-form label {
+  font-size: 1rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #2f7d4e;
+}
+
+/* BUTTON */
+.contact-form button {
+  margin-top: 20px;
+  padding: 14px 30px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #2f7d4e;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.contact-form button:hover {
+  background-color: #25653e;
+  transform: translateY(-2px);
+}
+
+/* SOCIAL MEDIA */
+.contact-socials ul {
+  display: flex;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.contact-socials ul li {
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #2f7d4e;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .contact-intro h1 {
+    font-size: 2.3rem;
+  }
+
+  .contact-page h2 {
+    font-size: 1.6rem;
+  }
+
+  .contact-page p,
+  .contact-page ul li {
+    font-size: 1rem;
+  }
+
+  .contact-socials ul {
+    flex-direction: column;
+  }
+}
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 2rem;
+  background-color: rgb(78, 162, 110);
+  color: white;
+}
+
+/* Contact info in a horizontal line */
+.footer-contact {
+  display: flex;
+}
+
+.footer-contact p {
+  padding: 0 1rem;
+  border-right: 1px solid #555;
+  margin: 0;
+}
+
+/* Remove line after last item */
+.footer-contact p:last-child {
+  border-right: none;
+}
+
+/* Social icons take remaining space */
+.footer-socials {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.footer-socials a {
+  color: white;
+  font-size: 22px;
+}
+
+.footer-socials a:hover {
+  color: #8d0c0c;
+}
