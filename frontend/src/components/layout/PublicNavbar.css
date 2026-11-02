@@ -1,0 +1,75 @@
+
+.public-navbar {
+  width: 100%;
+  min-height: 82px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e8eee9;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand-logo {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.brand-name {
+  color: #202b27;
+  font-size: 21px;
+  font-weight: 800;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name small {
+  font-size: 9px;
+  font-weight: 500;
+  color: #64736b;
+}
+
+.public-nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.public-nav a {
+  color: #202b27;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.public-nav a:hover {
+  color: #39845f;
+}
+
+.nav-button {
+  background-color: #39845f;
+  color: white;
+  text-decoration: none;
+  padding: 12px 22px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.nav-button:hover {
+  background-color: #174c3c;
+}

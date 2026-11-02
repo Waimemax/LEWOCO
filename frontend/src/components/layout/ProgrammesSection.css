@@ -1,0 +1,146 @@
+
+.programmes-section {
+  padding: 100px 7%;
+  background-color: #F7F8F5;
+}
+
+/* Section heading */
+.programmes-heading {
+  max-width: 750px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.programmes-label {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #39845F;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.programmes-heading h2 {
+  margin-bottom: 18px;
+  color: #202B27;
+  font-size: 42px;
+  font-weight: 750;
+}
+
+.programmes-heading h2 span {
+  color: #39845F;
+}
+
+.programmes-heading p {
+  color: #68736D;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* Programme cards */
+.programmes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.programme-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 330px;
+  padding: 28px 24px;
+  background-color: #FFFFFF;
+  border: 1px solid #E5EBE6;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.programme-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 14px 35px rgba(32, 43, 39, 0.09);
+}
+
+/* Card top */
+.programme-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.programme-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  background-color: #E8F2EB;
+  border-radius: 10px;
+  font-size: 27px;
+}
+
+.programme-number {
+  color: #A4B8AA;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Card content */
+.programme-card h3 {
+  margin-bottom: 14px;
+  color: #202B27;
+  font-size: 19px;
+  line-height: 1.4;
+}
+
+.programme-card p {
+  margin-bottom: 25px;
+  color: #68736D;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* Learn more link */
+.programme-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: auto;
+  color: #39845F;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.programme-link span {
+  transition: transform 0.3s ease;
+}
+
+.programme-link:hover span {
+  transform: translateX(5px);
+}
+
+/* Responsive layout */
+@media (max-width: 1100px) {
+  .programmes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .programmes-section {
+    padding: 75px 6%;
+  }
+
+  .programmes-heading h2 {
+    font-size: 32px;
+  }
+
+  .programmes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .programme-card {
+    min-height: auto;
+  }
+}

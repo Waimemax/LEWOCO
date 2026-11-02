@@ -1,0 +1,224 @@
+
+/* =====================================
+   LEWOCO ABOUT SECTION
+===================================== */
+
+.about-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 70px;
+  padding: 100px 7%;
+  background-color: #FFFFFF;
+}
+
+/* ABOUT IMAGE */
+
+.about-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 540px;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: #E8F2EB;
+  box-shadow: 0 15px 40px rgba(32, 43, 39, 0.10);
+}
+
+.about-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* IMAGE CAPTION */
+
+.about-image-note {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: rgba(32, 43, 39, 0.88);
+  color: #FFFFFF;
+}
+
+.about-image-note span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.about-image-note p {
+  color: #E8F2EB;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* ABOUT CONTENT */
+
+.about-content {
+  max-width: 620px;
+}
+
+.about-label {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: #39845F;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.about-content h2 {
+  margin-bottom: 24px;
+  color: #202B27;
+  font-size: clamp(36px, 4vw, 48px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+}
+
+.about-content h2 span {
+  color: #39845F;
+}
+
+.about-intro {
+  margin-bottom: 18px;
+  color: #202B27;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.about-description {
+  margin-bottom: 30px;
+  color: #626D67;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* ABOUT VALUES */
+
+.about-values {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-bottom: 32px;
+}
+
+.about-value {
+  display: flex;
+  align-items: flex-start;
+  gap: 17px;
+}
+
+.about-value-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background-color: #E8F2EB;
+  color: #39845F;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.about-value h3 {
+  margin-bottom: 5px;
+  color: #202B27;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.about-value p {
+  color: #626D67;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* ABOUT BUTTON */
+
+.about-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 23px;
+  border: 2px solid #39845F;
+  border-radius: 6px;
+  background-color: #39845F;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.about-button:hover {
+  border-color: #174C3C;
+  background-color: #174C3C;
+  transform: translateY(-2px);
+}
+
+.about-button span {
+  font-size: 19px;
+}
+
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
+
+@media (max-width: 1000px) {
+  .about-section {
+    gap: 40px;
+    padding: 80px 5%;
+  }
+
+  .about-image-wrapper {
+    height: 480px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 65px 6%;
+  }
+
+  .about-image-wrapper {
+    height: 420px;
+  }
+
+  .about-content {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section {
+    padding: 50px 5%;
+  }
+
+  .about-image-wrapper {
+    height: 320px;
+  }
+
+  .about-content h2 {
+    font-size: 36px;
+  }
+
+  .about-intro {
+    font-size: 15px;
+  }
+
+  .about-description {
+    font-size: 14px;
+  }
+}

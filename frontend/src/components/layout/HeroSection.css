@@ -1,0 +1,247 @@
+
+/* =====================================
+   LEWOCO HERO SECTION
+===================================== */
+
+.hero-section {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  align-items: center;
+  gap: 45px;
+  padding: 65px 5%;
+  min-height: 680px;
+  background-color: #F7F8F5;
+}
+
+/* HERO CONTENT */
+
+.hero-content {
+  max-width: 650px;
+}
+
+.hero-label {
+  display: inline-block;
+  margin-bottom: 22px;
+  color: #39845F;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.6;
+}
+
+.hero-content h1 {
+  margin-bottom: 24px;
+  color: #202B27;
+  font-size: clamp(38px, 4.5vw, 62px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -2px;
+}
+
+.hero-content h1 span {
+  display: block;
+  color: #39845F;
+}
+
+.hero-content > p {
+  max-width: 540px;
+  margin-bottom: 32px;
+  color: #626D67;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* HERO BUTTONS */
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 55px;
+}
+
+.hero-buttons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 23px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.hero-btn-primary {
+  background-color: #39845F;
+  color: #FFFFFF;
+  border: 2px solid #39845F;
+}
+
+.hero-btn-primary:hover {
+  background-color: #174C3C;
+  border-color: #174C3C;
+  transform: translateY(-2px);
+}
+
+.hero-btn-secondary {
+  background-color: transparent;
+  color: #202B27;
+  border: 2px solid #D3DDD5;
+}
+
+.hero-btn-secondary:hover {
+  background-color: #E8F2EB;
+  border-color: #39845F;
+}
+
+/* HERO HIGHLIGHTS */
+
+.hero-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding-top: 25px;
+  border-top: 1px solid #DDE5DE;
+}
+
+.hero-highlight span {
+  display: block;
+  margin-bottom: 8px;
+  color: #39845F;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.hero-highlight p {
+  color: #202B27;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* HERO IMAGE */
+
+.hero-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 560px;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: #E8F2EB;
+  box-shadow: 0 15px 40px rgba(32, 43, 39, 0.12);
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* IMAGE CAPTION */
+
+.hero-image-caption {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  padding: 18px 20px;
+  border-radius: 8px;
+  background-color: rgba(32, 43, 39, 0.88);
+  color: #FFFFFF;
+}
+
+.hero-image-caption span {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.hero-image-caption p {
+  color: #E8F2EB;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 1000px) {
+  .hero-section {
+    gap: 35px;
+    padding: 60px 5%;
+  }
+
+  .hero-image-wrapper {
+    height: 420px;
+  }
+
+  .hero-highlights {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding: 50px 6%;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(36px, 8vw, 48px);
+    letter-spacing: -1px;
+  }
+
+  .hero-buttons {
+    margin-bottom: 35px;
+  }
+
+  .hero-image-wrapper {
+    height: 380px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 40px 5%;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+  }
+
+  .hero-highlights {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .hero-highlight {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-highlight span {
+    margin-bottom: 0;
+  }
+
+  .hero-image-wrapper {
+    height: 300px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-buttons a {
+    width: 100%;
+  }
+}

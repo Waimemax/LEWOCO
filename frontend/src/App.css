@@ -1,0 +1,67 @@
+
+main {
+  width: 100%;
+}
+
+main section {
+  padding: 90px 7%;
+}
+
+#home {
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #E8F2EB;
+}
+
+#home h1 {
+  max-width: 750px;
+  color: #174C3C;
+  font-size: clamp(38px, 5vw, 62px);
+  line-height: 1.15;
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+#home p {
+  max-width: 650px;
+  color: #52635A;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+main section h2 {
+  color: #174C3C;
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+
+main section p {
+  max-width: 750px;
+  color: #64736B;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+#about,
+#projects {
+  background-color: #FFFFFF;
+}
+
+#programmes {
+  background-color: #F7F8F5;
+}
+
+#contact {
+  background-color: #202B27;
+}
+
+#contact h2 {
+  color: #FFFFFF;
+}
+
+#contact p {
+  color: #D1DDD5;
+}
