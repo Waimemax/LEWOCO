@@ -1,0 +1,257 @@
+
+.dashboard-page {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.dashboard-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.dashboard-eyebrow {
+  color: #39845F;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.dashboard-welcome h1 {
+  color: #202B27;
+  font-size: 28px;
+  margin-top: 7px;
+}
+
+.dashboard-welcome p {
+  color: #758078;
+  font-size: 14px;
+  margin-top: 7px;
+}
+
+.dashboard-date {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 13px 20px;
+  background: #E8F2EB;
+  border-radius: 10px;
+}
+
+.dashboard-date span {
+  color: #758078;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.dashboard-date strong {
+  color: #174C3C;
+  font-size: 14px;
+}
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.dashboard-stat-card {
+  background: #FFFFFF;
+  border: 1px solid #E6EBE6;
+  border-radius: 12px;
+  padding: 21px;
+  min-width: 0;
+}
+
+.stat-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.stat-icon,
+.quick-action-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #E8F2EB;
+  color: #39845F;
+  border-radius: 10px;
+  font-size: 21px;
+}
+
+.stat-status {
+  color: #758078;
+  font-size: 10px;
+  background: #F1F3F0;
+  padding: 5px 8px;
+  border-radius: 20px;
+}
+
+.dashboard-stat-card h3 {
+  color: #59645D;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.stat-value {
+  display: block;
+  color: #202B27;
+  font-size: 29px;
+  margin-top: 8px;
+}
+
+.dashboard-stat-card > p {
+  color: #929B94;
+  font-size: 11px;
+  margin-top: 7px;
+}
+
+.dashboard-lower {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 20px;
+}
+
+.dashboard-panel {
+  background: #FFFFFF;
+  border: 1px solid #E6EBE6;
+  border-radius: 12px;
+  padding: 23px;
+  min-width: 0;
+}
+
+.panel-heading h2 {
+  color: #202B27;
+  font-size: 16px;
+}
+
+.panel-heading p {
+  color: #929B94;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.empty-activity {
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.empty-activity-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #E8F2EB;
+  color: #39845F;
+  border-radius: 50%;
+  font-size: 25px;
+}
+
+.empty-activity h3 {
+  color: #202B27;
+  font-size: 14px;
+  margin-top: 13px;
+}
+
+.empty-activity p {
+  color: #929B94;
+  font-size: 12px;
+  line-height: 1.6;
+  max-width: 280px;
+  margin-top: 6px;
+}
+
+.quick-actions-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 17px;
+}
+
+.quick-action {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid #EEF1ED;
+  color: inherit;
+}
+
+.quick-action:last-child {
+  border-bottom: none;
+}
+
+.quick-action-icon {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  font-size: 18px;
+}
+
+.quick-action-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.quick-action-text strong {
+  color: #202B27;
+  font-size: 12px;
+}
+
+.quick-action-text small {
+  color: #929B94;
+  font-size: 10px;
+}
+
+.quick-action-arrow {
+  color: #39845F;
+  font-size: 19px;
+}
+
+.quick-action:hover .quick-action-text strong {
+  color: #39845F;
+}
+
+@media (max-width: 1100px) {
+  .dashboard-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .dashboard-welcome {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dashboard-welcome h1 {
+    font-size: 24px;
+  }
+
+  .dashboard-stats,
+  .dashboard-lower {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-panel {
+    padding: 18px;
+  }
+}
