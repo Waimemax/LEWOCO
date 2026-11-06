@@ -7,32 +7,40 @@ const resources = [
     type: 'Information',
     title: 'About LEWOCO',
     description:
-      'Learn about LEWOCO, its mission, vision and commitment to women empowerment and community development.',
+      'Learn about Lower Eastern Women Cooperative Society Ltd, its mission and commitment to empowering women and youth in Lower Eastern Kenya.',
     icon: '🏢',
   },
   {
-    category: 'Agriculture',
-    type: 'Learning Material',
-    title: 'Sustainable Agriculture',
-    description:
-      'Explore learning materials and information about sustainable agricultural practices and community livelihoods.',
-    icon: '🌱',
-  },
-  {
-    category: 'Skills Development',
-    type: 'Learning Material',
-    title: 'Vocational Skills Development',
-    description:
-      'Discover educational information on vocational skills, entrepreneurship and capacity building.',
-    icon: '📚',
-  },
-  {
-    category: 'Women Empowerment',
+    category: 'Women-Led Enterprise',
     type: 'Information',
-    title: 'Women Empowerment & Advocacy',
+    title: 'Women Entrepreneurship',
     description:
-      'Access information on gender equality, advocacy and the empowerment of women in communities.',
-    icon: '🤝',
+      'Explore the importance of women-led enterprises, business development and economic independence in strengthening livelihoods.',
+    icon: '📈',
+  },
+  {
+    category: 'Handmade Crafts',
+    type: 'Learning Resource',
+    title: 'Woven Crafts & Creative Skills',
+    description:
+      'Discover handmade woven crafts, creative craftsmanship and opportunities for women to develop practical skills.',
+    icon: '🧺',
+  },
+  {
+    category: 'Youth Development',
+    type: 'Learning Resource',
+    title: 'Youth Beading & Skills Development',
+    description:
+      'Explore beading, creativity and practical skills that can encourage entrepreneurship and sustainable livelihoods among young people.',
+    icon: '📿',
+  },
+  {
+    category: 'Sustainable Livelihoods',
+    type: 'Information',
+    title: 'Building Sustainable Livelihoods',
+    description:
+      'Understand how skills development, enterprise opportunities and community participation can support lasting economic independence.',
+    icon: '🌱',
   },
 ]
 
@@ -49,9 +57,10 @@ function ResourcesSection() {
           </h2>
 
           <p>
-            Access useful information, educational materials and
-            resources supporting women empowerment and community development.
-          </p>
+  Explore information and learning resources on women-led
+  enterprises, handmade woven crafts, youth creative skills
+  and sustainable livelihood opportunities.
+</p>
         </div>
 
         <div className="resources-grid">

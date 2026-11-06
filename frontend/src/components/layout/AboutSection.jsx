@@ -15,7 +15,7 @@ function AboutSection() {
 
         <div className="about-image-note">
           <span>Stronger Together</span>
-          <p>Empowering women through collective action.</p>
+          <p>Empowering women and youth through sustainable livelihoods.</p>
         </div>
       </div>
 
@@ -26,17 +26,18 @@ function AboutSection() {
           About <span>LEWOCO</span>
         </h2>
 
-        <p className="about-intro">
-          Lower Eastern Women Cooperative Union (LEWOCO) is an
-          organization committed to empowering women and strengthening
-          communities across the Lower Eastern region.
+                <p className="about-intro">
+          Lower Eastern Women Cooperative Society Ltd (LEWOCO) is
+          committed to empowering women and youth across Lower Eastern
+          Kenya through enterprise development, skills development,
+          and sustainable livelihood opportunities.
         </p>
 
         <p className="about-description">
-          Through financial empowerment initiatives, capacity building,
-          sustainable agriculture, vocational training and advocacy,
-          LEWOCO works to create opportunities that enable women to
-          improve their livelihoods and actively participate in
+          LEWOCO supports women-led enterprises, promotes handmade
+          woven crafts by women, encourages youth participation in
+          beading and creative skills, and strengthens sustainable
+          livelihoods that promote economic independence and
           community development.
         </p>
 

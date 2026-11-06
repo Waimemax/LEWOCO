@@ -12,7 +12,9 @@ function HeroSection() {
 
         <h1>
           Empowering Women.
-          <span> Building Stronger Communities.</span>
+Developing Youth.
+Building Sustainable Livelihoods.
+          <span> LEWOCO empowers women and youth in Lower Eastern Kenya through women-led enterprises, handmade woven crafts, youth beading skills, and sustainable livelihood opportunities.</span>
         </h1>
 
         <p>
@@ -28,6 +30,10 @@ function HeroSection() {
 
           <a href="#contact" className="hero-btn-secondary">
             Get Involved
+          </a>
+
+           <a href="#contact" className="btn btn-secondary">
+        Contact LEWOCO
           </a>
         </div>
 

@@ -47,10 +47,11 @@ function ContactSection() {
         </h2>
 
         <p>
-          Have a question or want to learn more about LEWOCO?
-          Send us an enquiry or reach out through our contact details.
-          We would be happy to hear from you.
-        </p>
+  Are you interested in LEWOCO's work, membership,
+  women-led enterprises, handmade woven crafts or youth
+  development? Get in touch with us. We welcome enquiries
+  from individuals, communities and potential partners.
+</p>
       </div>
 
       <div className="contact-content">
@@ -98,15 +99,15 @@ function ContactSection() {
               WE ARE HERE TO CONNECT
             </span>
 
-            <h3>
-              Together, we can build stronger communities.
-            </h3>
+           <h3>
+  Empowering women and youth for a sustainable future.
+</h3>
 
-            <p>
-              Connect with LEWOCO to learn about our work,
-              programmes and opportunities to participate
-              in community development.
-            </p>
+<p>
+  Connect with LEWOCO to learn about our initiatives,
+  membership opportunities, enterprise development
+  and creative skills programmes across Lower Eastern Kenya.
+</p>
           </div>
 
         </div>
@@ -124,10 +125,10 @@ function ContactSection() {
 
           {submitted && (
             <div className="form-success">
-              Your enquiry has been validated successfully.
-              Form submission to LEWOCO will be enabled when
-              we connect the Laravel backend.
-            </div>
+  Your form has passed the frontend validation.
+  Enquiry submission is not yet available. Please
+  contact LEWOCO directly using the contact details provided.
+</div>
           )}
 
           <form className="contact-form" onSubmit={handleSubmit}>
@@ -185,12 +186,14 @@ function ContactSection() {
                 required
               >
                 <option value="">Select an enquiry subject</option>
-                <option value="General Enquiry">General Enquiry</option>
-                <option value="Programmes">Programmes</option>
-                <option value="Membership">Membership</option>
-                <option value="Partnership">Partnership</option>
-                <option value="Training">Training Opportunities</option>
-                <option value="Other">Other</option>
+<option value="General Enquiry">General Enquiry</option>
+<option value="Membership">Membership</option>
+<option value="Women-Led Enterprise">Women-Led Enterprise</option>
+<option value="Handmade Woven Crafts">Handmade Woven Crafts</option>
+<option value="Youth Beading">Youth Beading & Creative Skills</option>
+<option value="Sustainable Livelihoods">Sustainable Livelihoods</option>
+<option value="Partnership">Partnership Opportunities</option>
+<option value="Other">Other</option>
               </select>
             </div>
 

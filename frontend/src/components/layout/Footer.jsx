@@ -11,13 +11,16 @@ function Footer() {
           <div className="footer-brand">
             <img src={lewocoLogo} alt="LEWOCO Logo" />
             <h2>LEWOCO</h2>
+            <small>Lower Eastern Women Cooperative Society Ltd</small>
           </div>
 
-          <p>
-            Lower Eastern Women Cooperative Union works to empower
-            women through sustainable agriculture, vocational skills,
-            entrepreneurship and community development.
-          </p>
+         <p>
+  Lower Eastern Women Cooperative Society Ltd (LEWOCO)
+  empowers women and youth through women-led enterprises,
+  handmade woven crafts, youth beading and creative skills,
+  and sustainable livelihood opportunities across Lower
+  Eastern Kenya.
+</p>
         </div>
 
         <div className="footer-links">
@@ -46,7 +49,7 @@ function Footer() {
           © {new Date().getFullYear()} LEWOCO.
           All rights reserved.
         </p>
-        <p>Empowering Women. Building Stronger Communities.</p>
+        <p>Empowering Women. Developing Youth. Building Sustainable Livelihoods.</p>
       </div>
     </footer>
   )

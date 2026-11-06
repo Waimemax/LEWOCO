@@ -14,7 +14,7 @@ function PublicNavbar() {
 
         <span className="brand-name">
           LEWOCO
-          <small>Lower Eastern Women Cooperative Union</small>
+          <small>Lower Eastern Women Cooperative Society Ltd</small>
         </span>
       </a>
 

@@ -1,47 +1,47 @@
-
 import './ProjectsSection.css'
 
 function ProjectsSection() {
   const projects = [
     {
       number: '01',
-      category: 'AGRICULTURE',
-      title: 'Sustainable Community Agriculture',
+      category: 'WOMEN-LED ENTERPRISE',
+      title: 'Women Enterprise Development',
       description:
-        'Supporting women in adopting sustainable agricultural practices that strengthen food security, improve livelihoods and promote environmental responsibility.',
-      icon: '🌾',
+        'Supporting women in building and growing sustainable enterprises through practical skills, entrepreneurship and opportunities for economic independence.',
+      icon: '📈',
     },
     {
       number: '02',
-      category: 'SKILLS DEVELOPMENT',
-      title: 'Women Skills Development',
+      category: 'HANDMADE CRAFTS',
+      title: 'Women in Woven Crafts',
       description:
-        'Creating opportunities for women to acquire practical vocational skills in handicrafts, food processing and other productive activities.',
-      icon: '🧵',
+        'Promoting handmade woven crafts by women through creative skills development, craftsmanship and opportunities to generate sustainable income.',
+      icon: '🧺',
     },
     {
       number: '03',
-      category: 'ENTREPRENEURSHIP',
-      title: 'Women-led Enterprise Development',
+      category: 'YOUTH DEVELOPMENT',
+      title: 'Youth Beading & Creative Skills',
       description:
-        'Encouraging entrepreneurship through business knowledge, capacity building and initiatives that support sustainable women-led enterprises.',
-      icon: '🌱',
+        'Encouraging young people to develop beading and other creative skills that can support self-reliance, entrepreneurship and sustainable livelihoods.',
+      icon: '📿',
     },
   ]
 
   return (
     <section className="projects-section" id="projects">
       <div className="projects-heading">
-        <span className="projects-label">OUR COMMUNITY IMPACT</span>
+        <span className="projects-label">OUR FOCUS AREAS</span>
 
         <h2>
-          Projects That <span>Inspire Change</span>
+          Creating Opportunities for <span>Lasting Change</span>
         </h2>
 
         <p>
-          We focus on initiatives that create meaningful opportunities,
-          strengthen women's participation and contribute to sustainable
-          community development.
+          LEWOCO promotes initiatives that strengthen women-led
+          enterprises, support creative skills development and
+          create sustainable livelihood opportunities for women
+          and youth across Lower Eastern Kenya.
         </p>
       </div>
 

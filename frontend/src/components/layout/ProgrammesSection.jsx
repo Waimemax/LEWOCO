@@ -1,35 +1,41 @@
-
 import './ProgrammesSection.css'
 
 function ProgrammesSection() {
   const programmes = [
     {
       number: '01',
-      title: 'Sustainable Agriculture',
+      title: 'Women-Led Enterprise',
       description:
-        'Promoting sustainable farming practices, food security and agricultural activities that improve livelihoods and strengthen community resilience.',
-      icon: '🌱',
-    },
-    {
-      number: '02',
-      title: 'Vocational Skills Training',
-      description:
-        'Equipping women with practical skills in areas such as handicrafts, food processing and other activities that support self-reliance.',
-      icon: '🧵',
-    },
-    {
-      number: '03',
-      title: 'Entrepreneurship & Capacity Building',
-      description:
-        'Building business knowledge, leadership abilities and practical skills that help women develop and manage sustainable enterprises.',
+        'Supporting women to develop, manage and grow enterprises that promote economic independence and sustainable income opportunities.',
       icon: '📈',
     },
     {
-      number: '04',
-      title: 'Gender Equality & Advocacy',
+      number: '02',
+      title: 'Women & Youth Development',
       description:
-        'Promoting equal opportunities, social justice and meaningful participation of women in community and decision-making processes.',
+        'Promoting skills development, capacity building and opportunities that enable women and young people to participate in community development.',
       icon: '🤝',
+    },
+    {
+      number: '03',
+      title: 'Handmade Woven Crafts',
+      description:
+        'Supporting women in developing their handmade weaving skills, preserving creative craftsmanship and creating livelihood opportunities.',
+      icon: '🧺',
+    },
+    {
+      number: '04',
+      title: 'Youth Beading & Creative Skills',
+      description:
+        'Encouraging young people to develop practical beading and creative skills that can support entrepreneurship and self-reliance.',
+      icon: '📿',
+    },
+    {
+      number: '05',
+      title: 'Sustainable Livelihoods',
+      description:
+        'Promoting sustainable economic opportunities that strengthen household incomes, improve living conditions and support community development.',
+      icon: '🌱',
     },
   ]
 
@@ -43,9 +49,10 @@ function ProgrammesSection() {
         </h2>
 
         <p>
-          We implement programmes that empower women, strengthen
-          livelihoods and create sustainable opportunities for
-          communities across the Lower Eastern region.
+          LEWOCO focuses on empowering women and youth through
+          enterprise development, creative skills, handmade crafts
+          and sustainable livelihood opportunities across Lower
+          Eastern Kenya.
         </p>
       </div>
 
