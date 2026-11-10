@@ -1,9 +1,16 @@
-
 import { Outlet } from 'react-router-dom'
 import AdminSidebar from '../components/admin/AdminSidebar'
+import { useAuth } from '../hooks/useAuth'
 import './AdminLayout.css'
 
+const ROLE_LABELS = {
+  super_admin: 'Super Administrator',
+  content_admin: 'Content Administrator',
+}
+
 function AdminLayout() {
+  const { user } = useAuth()
+
   return (
     <div className="admin-layout">
       <AdminSidebar />
@@ -16,10 +23,12 @@ function AdminLayout() {
           </div>
 
           <div className="admin-header-user">
-            <div className="admin-user-avatar">A</div>
+            <div className="admin-user-avatar">
+              {user?.name?.charAt(0).toUpperCase() || 'A'}
+            </div>
             <div>
-              <h4>Administrator</h4>
-              <span>System Admin</span>
+              <h4>{user?.name || 'Administrator'}</h4>
+              <span>{ROLE_LABELS[user?.role] || 'Administrator'}</span>
             </div>
           </div>
         </header>

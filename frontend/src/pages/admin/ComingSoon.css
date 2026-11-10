@@ -1,0 +1,36 @@
+.coming-soon {
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #FFFFFF;
+  border: 1px solid #E6EBE6;
+  border-radius: 12px;
+  padding: 30px;
+}
+
+.coming-soon-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #E8F2EB;
+  color: #39845F;
+  border-radius: 50%;
+  font-size: 26px;
+}
+
+.coming-soon h2 {
+  color: #202B27;
+  font-size: 18px;
+  margin-top: 14px;
+}
+
+.coming-soon p {
+  color: #929B94;
+  font-size: 13px;
+  margin-top: 6px;
+}

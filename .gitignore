@@ -32,3 +32,12 @@ pnpm-debug.log*
 # Operating system files
 .DS_Store
 Thumbs.db
+
+ADMIN_NAME="LEWOCO Super Administrator"
+ADMIN_EMAIL=admin@lewoco.com
+ADMIN_PASSWORD=AdminPassword123
+
+# Optional: a Content Administrator
+CONTENT_ADMIN_NAME="LEWOCO Content Administrator"
+CONTENT_ADMIN_EMAIL=content@example.com
+CONTENT_ADMIN_PASSWORD=choose-another-strong-password

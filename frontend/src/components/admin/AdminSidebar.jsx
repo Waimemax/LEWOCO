@@ -1,14 +1,17 @@
-
 import { NavLink } from 'react-router-dom'
+import { useAuth } from '../../hooks/useAuth'
 import lewocoLogo from '../../assets/images/LEWOCOLOGO.jpeg'
 import './AdminSidebar.css'
 
+const SUPER = ['super_admin']
+
+// roles: who can see the link. Omitted = every administrator.
 const navigation = [
   {
     title: 'MAIN MENU',
     links: [
       { name: 'Dashboard', path: '/admin', icon: '▦', end: true },
-      { name: 'Members', path: '/admin/members', icon: '♙' },
+      { name: 'Members', path: '/admin/members', icon: '♙', roles: SUPER },
     ],
   },
   {
@@ -30,13 +33,27 @@ const navigation = [
   {
     title: 'SYSTEM',
     links: [
-      { name: 'Reports', path: '/admin/reports', icon: '▥' },
-      { name: 'Settings', path: '/admin/settings', icon: '⚙' },
+      { name: 'Reports', path: '/admin/reports', icon: '▥', roles: SUPER },
+      { name: 'Settings', path: '/admin/settings', icon: '⚙', roles: SUPER },
     ],
   },
 ]
 
+const ROLE_LABELS = {
+  super_admin: 'Super Administrator',
+  content_admin: 'Content Administrator',
+}
+
 function AdminSidebar() {
+  const { user, logout } = useAuth()
+
+  const visibleGroups = navigation
+    .map((group) => ({
+      ...group,
+      links: group.links.filter((link) => !link.roles || link.roles.includes(user?.role)),
+    }))
+    .filter((group) => group.links.length > 0)
+
   return (
     <aside className="admin-sidebar">
       <div className="admin-brand">
@@ -48,7 +65,7 @@ function AdminSidebar() {
       </div>
 
       <nav className="admin-navigation">
-        {navigation.map((group) => (
+        {visibleGroups.map((group) => (
           <div className="nav-group" key={group.title}>
             <p className="nav-group-title">{group.title}</p>
 
@@ -70,8 +87,11 @@ function AdminSidebar() {
       </nav>
 
       <div className="admin-sidebar-footer">
-        <p>LEWOCO Administration</p>
-        <span>Organizational Management System</span>
+        <p>{user?.name}</p>
+        <span>{ROLE_LABELS[user?.role] || 'Administrator'}</span>
+        <button type="button" className="admin-logout" onClick={logout}>
+          Sign out
+        </button>
       </div>
     </aside>
   )
