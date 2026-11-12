@@ -2,16 +2,22 @@
 import { useState } from 'react'
 import './ContactSection.css'
 
+const emptyForm = {
+  fullName: '',
+  email: '',
+  phone: '',
+  subject: '',
+  message: '',
+  website: '', // hidden spam trap: real visitors leave it empty
+}
+
 function ContactSection() {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
-  })
+  const [formData, setFormData] = useState(emptyForm)
 
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+  const [fieldErrors, setFieldErrors] = useState({})
 
   function handleChange(event) {
     const { name, value } = event.target
@@ -22,18 +28,54 @@ function ContactSection() {
     }))
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault()
 
-    setSubmitted(true)
+    setSubmitted(false)
+    setErrorMessage('')
+    setFieldErrors({})
+    setSubmitting(true)
 
-    setFormData({
-      fullName: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: '',
-    })
+    try {
+      const response = await fetch('/api/public/enquiries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          full_name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+          website: formData.website,
+        }),
+      })
+
+      const data = await response.json().catch(() => ({}))
+
+      if (response.status === 422) {
+        setFieldErrors(data.errors || {})
+        setErrorMessage('Please check the highlighted details and try again.')
+        return
+      }
+
+      if (response.status === 429) {
+        setErrorMessage(
+          'You have sent several enquiries recently. Please wait a few minutes, or contact LEWOCO by phone or email.'
+        )
+        return
+      }
+
+      if (!response.ok) throw new Error('Request failed')
+
+      setSubmitted(true)
+      setFormData(emptyForm)
+    } catch {
+      setErrorMessage(
+        'We could not send your enquiry. Please try again, or contact LEWOCO directly using the details provided.'
+      )
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -124,14 +166,33 @@ function ContactSection() {
           </div>
 
           {submitted && (
-            <div className="form-success">
-  Your form has passed the frontend validation.
-  Enquiry submission is not yet available. Please
-  contact LEWOCO directly using the contact details provided.
-</div>
+            <div className="form-success" role="status">
+              Thank you. Your enquiry has been received and LEWOCO
+              will get back to you as soon as possible.
+            </div>
+          )}
+
+          {errorMessage && (
+            <div className="form-error" role="alert">
+              {errorMessage}
+            </div>
           )}
 
           <form className="contact-form" onSubmit={handleSubmit}>
+
+            {/* Spam trap: hidden from people, often filled in by bots */}
+            <div className="form-trap" aria-hidden="true">
+              <label htmlFor="website">Leave this field empty</label>
+              <input
+                type="text"
+                id="website"
+                name="website"
+                tabIndex="-1"
+                autoComplete="off"
+                value={formData.website}
+                onChange={handleChange}
+              />
+            </div>
 
             <div className="form-group">
               <label htmlFor="fullName">Full Name</label>
@@ -144,6 +205,9 @@ function ContactSection() {
                 onChange={handleChange}
                 required
               />
+              {fieldErrors.full_name && (
+                <small className="form-field-error">{fieldErrors.full_name[0]}</small>
+              )}
             </div>
 
             <div className="form-row">
@@ -159,6 +223,9 @@ function ContactSection() {
                   onChange={handleChange}
                   required
                 />
+                {fieldErrors.email && (
+                  <small className="form-field-error">{fieldErrors.email[0]}</small>
+                )}
               </div>
 
               <div className="form-group">
@@ -172,6 +239,9 @@ function ContactSection() {
                   onChange={handleChange}
                   required
                 />
+                {fieldErrors.phone && (
+                  <small className="form-field-error">{fieldErrors.phone[0]}</small>
+                )}
               </div>
 
             </div>
@@ -195,6 +265,9 @@ function ContactSection() {
 <option value="Partnership">Partnership Opportunities</option>
 <option value="Other">Other</option>
               </select>
+              {fieldErrors.subject && (
+                <small className="form-field-error">{fieldErrors.subject[0]}</small>
+              )}
             </div>
 
             <div className="form-group">
@@ -208,10 +281,17 @@ function ContactSection() {
                 onChange={handleChange}
                 required
               ></textarea>
+              {fieldErrors.message && (
+                <small className="form-field-error">{fieldErrors.message[0]}</small>
+              )}
             </div>
 
-            <button type="submit" className="contact-submit-button">
-              Submit Enquiry <span>→</span>
+            <button
+              type="submit"
+              className="contact-submit-button"
+              disabled={submitting}
+            >
+              {submitting ? 'Sending…' : 'Submit Enquiry'} <span>→</span>
             </button>
 
           </form>

@@ -1,0 +1,12 @@
+.status-pill.published { background: #E8F2EB; color: #174C3C; }
+.status-pill.draft { background: #FFF4DB; color: #8A5A00; }
+
+.icon-cell { font-size: 22px; width: 60px; }
+
+.members-table td small.clamp {
+  max-width: 520px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

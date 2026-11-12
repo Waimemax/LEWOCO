@@ -55,7 +55,7 @@
 
 .dashboard-stats {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
   gap: 18px;
   margin-bottom: 25px;
 }
@@ -253,5 +253,78 @@
 
   .dashboard-panel {
     padding: 18px;
+  }
+}
+
+/* ===================================
+   LIVE DATA: ACTIVITY AND ERRORS
+=================================== */
+
+.dashboard-error {
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  background: #FDECEA;
+  border: 1px solid #F3C5C0;
+  border-radius: 8px;
+  color: #9B1C1C;
+  font-size: 13px;
+}
+
+.activity-list {
+  list-style: none;
+  margin-top: 14px;
+}
+
+.activity-item {
+  display: grid;
+  grid-template-columns: 82px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #EEF1ED;
+  color: inherit;
+}
+
+.activity-list li:last-child .activity-item {
+  border-bottom: none;
+}
+
+.activity-label {
+  justify-self: start;
+  padding: 4px 10px;
+  background: #E8F2EB;
+  border-radius: 20px;
+  color: #174C3C;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.activity-text {
+  min-width: 0;
+  color: #202B27;
+  font-size: 12px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.activity-time {
+  color: #929B94;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.activity-item:hover .activity-text {
+  color: #39845F;
+}
+
+@media (max-width: 650px) {
+  .activity-item {
+    grid-template-columns: 1fr auto;
+  }
+
+  .activity-label {
+    grid-column: 1 / -1;
   }
 }

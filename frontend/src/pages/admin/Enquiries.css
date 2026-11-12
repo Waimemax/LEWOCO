@@ -1,0 +1,37 @@
+.status-pill.new { background: #FFF4DB; color: #8A5A00; }
+.status-pill.read { background: #F1F3F0; color: #758078; }
+.status-pill.responded { background: #E8F2EB; color: #174C3C; }
+
+.members-table tr.row-new td { background: #FCFDF9; }
+.members-table tr.row-new td:first-child { box-shadow: inset 3px 0 0 #39845F; }
+
+.enquiry-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: #F7F8F5;
+  border-radius: 10px;
+}
+.enquiry-facts dt { color: #758078; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; }
+.enquiry-facts dd { color: #202B27; font-size: 13px; margin-top: 4px; overflow-wrap: anywhere; }
+.enquiry-facts a { color: #39845F; }
+
+.enquiry-message {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  padding: 16px;
+  margin-bottom: 20px;
+  border: 1px solid #E6EBE6;
+  border-radius: 10px;
+  color: #202B27;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.reply-link { text-decoration: none; margin-right: auto; display: inline-flex; align-items: center; }
+
+@media (max-width: 650px) {
+  .enquiry-facts { grid-template-columns: 1fr; }
+}

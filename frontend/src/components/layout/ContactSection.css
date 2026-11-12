@@ -333,3 +333,38 @@
     width: 100%;
   }
 }
+
+/* ===================================
+   ENQUIRY FORM: FEEDBACK
+=================================== */
+
+.form-error {
+  padding: 15px;
+  margin-bottom: 22px;
+  background-color: #FDECEA;
+  border: 1px solid #F3C5C0;
+  border-radius: 7px;
+  color: #9B1C1C;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.form-field-error {
+  color: #9B1C1C;
+  font-size: 12px;
+}
+
+.contact-submit-button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+  transform: none;
+}
+
+/* Spam trap: kept off-screen rather than display:none, which some bots detect */
+.form-trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

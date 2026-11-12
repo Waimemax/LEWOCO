@@ -1,32 +1,53 @@
+import { useEffect, useState } from 'react'
 import './ProjectsSection.css'
 
+// Shown only if the server cannot be reached, so the public site is never blank
+const fallbackProjects = [
+  {
+    id: 1,
+    category: 'Women-Led Enterprise',
+    title: 'Women Enterprise Development',
+    description:
+      'Supporting women in building and growing sustainable enterprises through practical skills, entrepreneurship and opportunities for economic independence.',
+    icon: '📈',
+  },
+  {
+    id: 2,
+    category: 'Handmade Crafts',
+    title: 'Women in Woven Crafts',
+    description:
+      'Promoting handmade woven crafts by women through creative skills development, craftsmanship and opportunities to generate sustainable income.',
+    icon: '🧺',
+  },
+  {
+    id: 3,
+    category: 'Youth Development',
+    title: 'Youth Beading & Creative Skills',
+    description:
+      'Encouraging young people to develop beading and other creative skills that can support self-reliance, entrepreneurship and sustainable livelihoods.',
+    icon: '📿',
+  },
+]
+
 function ProjectsSection() {
-  const projects = [
-    {
-      number: '01',
-      category: 'WOMEN-LED ENTERPRISE',
-      title: 'Women Enterprise Development',
-      description:
-        'Supporting women in building and growing sustainable enterprises through practical skills, entrepreneurship and opportunities for economic independence.',
-      icon: '📈',
-    },
-    {
-      number: '02',
-      category: 'HANDMADE CRAFTS',
-      title: 'Women in Woven Crafts',
-      description:
-        'Promoting handmade woven crafts by women through creative skills development, craftsmanship and opportunities to generate sustainable income.',
-      icon: '🧺',
-    },
-    {
-      number: '03',
-      category: 'YOUTH DEVELOPMENT',
-      title: 'Youth Beading & Creative Skills',
-      description:
-        'Encouraging young people to develop beading and other creative skills that can support self-reliance, entrepreneurship and sustainable livelihoods.',
-      icon: '📿',
-    },
-  ]
+  const [projects, setProjects] = useState(fallbackProjects)
+
+  useEffect(() => {
+    let cancelled = false
+
+    fetch('/api/public/projects', { headers: { Accept: 'application/json' } })
+      .then((response) => (response.ok ? response.json() : Promise.reject()))
+      .then((data) => {
+        if (!cancelled && Array.isArray(data.projects)) setProjects(data.projects)
+      })
+      .catch(() => {
+        // Keep the fallback list
+      })
+
+    return () => {
+      cancelled = true
+    }
+  }, [])
 
   return (
     <section className="projects-section" id="projects">
@@ -45,18 +66,28 @@ function ProjectsSection() {
         </p>
       </div>
 
+      {projects.length === 0 && (
+        <p style={{ textAlign: 'center', margin: '0 auto' }}>
+          Our projects will be listed here soon.
+        </p>
+      )}
+
       <div className="projects-grid">
-        {projects.map((project) => (
-          <article className="project-card" key={project.number}>
+        {projects.map((project, index) => (
+          <article className="project-card" key={project.id}>
             <div className="project-visual">
-              <span className="project-icon">{project.icon}</span>
-              <span className="project-number">{project.number}</span>
+              <span className="project-icon">{project.icon || '•'}</span>
+              <span className="project-number">
+                {String(index + 1).padStart(2, '0')}
+              </span>
             </div>
 
             <div className="project-content">
-              <span className="project-category">
-                {project.category}
-              </span>
+              {project.category && (
+                <span className="project-category">
+                  {project.category.toUpperCase()}
+                </span>
+              )}
 
               <h3>{project.title}</h3>
 

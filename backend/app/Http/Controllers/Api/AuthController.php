@@ -23,6 +23,12 @@ class AuthController extends Controller
             return response()->json(['message' => 'Invalid email or password.'], 422);
         }
 
+        if (! $user->is_active) {
+            return response()->json([
+                'message' => 'This account has been deactivated. Please contact a super administrator.',
+            ], 403);
+        }
+
         $token = $user->createToken('admin-dashboard', ['*'], now()->addDays(7))->plainTextToken;
 
         return response()->json([
@@ -41,6 +47,35 @@ class AuthController extends Controller
         $request->user()->currentAccessToken()->delete();
 
         return response()->json(['message' => 'Logged out.']);
+    }
+
+    /**
+     * Let any signed-in administrator change their own password.
+     * Other devices are signed out; this one stays signed in.
+     */
+    public function changePassword(Request $request): JsonResponse
+    {
+        $validated = $request->validate([
+            'current_password' => ['required', 'string'],
+            'password' => ['required', 'string', 'min:8', 'confirmed', 'different:current_password'],
+        ]);
+
+        $user = $request->user();
+
+        if (! Hash::check($validated['current_password'], $user->password)) {
+            return response()->json([
+                'message' => 'The current password is incorrect.',
+                'errors' => ['current_password' => ['The current password is incorrect.']],
+            ], 422);
+        }
+
+        $user->update(['password' => $validated['password']]);
+
+        $user->tokens()
+            ->where('id', '!=', $user->currentAccessToken()->id)
+            ->delete();
+
+        return response()->json(['message' => 'Password changed successfully.']);
     }
 
     private function present(User $user): array

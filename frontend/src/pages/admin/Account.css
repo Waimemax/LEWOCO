@@ -1,0 +1,14 @@
+.account-page { max-width: 760px; margin: 0 0 0 0; }
+.account-card { padding: 24px; margin-bottom: 20px; }
+.account-card h2 { color: #202B27; font-size: 17px; }
+.account-help { color: #929B94; font-size: 12px; margin: 6px 0 18px; }
+
+.account-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.account-facts dt { color: #758078; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; }
+.account-facts dd { color: #202B27; font-size: 14px; margin-top: 5px; overflow-wrap: anywhere; }
+
+.account-fields { display: flex; flex-direction: column; gap: 16px; max-width: 380px; }
+
+@media (max-width: 650px) {
+  .account-facts { grid-template-columns: 1fr; }
+}

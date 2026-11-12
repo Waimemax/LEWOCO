@@ -35,6 +35,7 @@ const navigation = [
     links: [
       { name: 'Reports', path: '/admin/reports', icon: '▥', roles: SUPER },
       { name: 'Settings', path: '/admin/settings', icon: '⚙', roles: SUPER },
+      { name: 'My Account', path: '/admin/account', icon: '☺' },
     ],
   },
 ]
