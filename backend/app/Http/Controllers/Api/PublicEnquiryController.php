@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Mail\NewEnquiryMail;
 use App\Models\Enquiry;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 
 class PublicEnquiryController extends Controller
@@ -19,7 +21,7 @@ class PublicEnquiryController extends Controller
 
         // Honeypot: real visitors never see or fill this hidden field, bots usually do.
         // Pretend it worked so the bot learns nothing.
-        if ($request->filled('website')) {
+        if ($request->filled('hp_ref')) {
             return response()->json($thanks, 201);
         }
 
@@ -31,11 +33,34 @@ class PublicEnquiryController extends Controller
             'message' => ['required', 'string', 'max:5000'],
         ]);
 
-        Enquiry::create([
+        $enquiry = Enquiry::create([
             ...$validated,
             'status' => Enquiry::STATUS_NEW,
         ]);
 
+        $this->notifyStaff($enquiry);
+
         return response()->json($thanks, 201);
+    }
+
+    /**
+     * Email LEWOCO about the new enquiry, after the visitor has already received their reply.
+     * A mail problem never affects the visitor: the enquiry is saved and the error is logged.
+     */
+    private function notifyStaff(Enquiry $enquiry): void
+    {
+        $recipient = config('lewoco.enquiry_notify_email');
+
+        if (! $recipient) {
+            return;
+        }
+
+        app()->terminating(function () use ($recipient, $enquiry) {
+            try {
+                Mail::to($recipient)->send(new NewEnquiryMail($enquiry));
+            } catch (\Throwable $exception) {
+                report($exception);
+            }
+        });
     }
 }

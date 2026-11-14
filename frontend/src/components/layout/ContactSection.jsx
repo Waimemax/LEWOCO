@@ -1,5 +1,6 @@
 
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './ContactSection.css'
 
 const emptyForm = {
@@ -8,7 +9,7 @@ const emptyForm = {
   phone: '',
   subject: '',
   message: '',
-  website: '', // hidden spam trap: real visitors leave it empty
+  hp_ref: '', // hidden spam trap: real visitors leave it empty
 }
 
 function ContactSection() {
@@ -46,7 +47,7 @@ function ContactSection() {
           phone: formData.phone,
           subject: formData.subject,
           message: formData.message,
-          website: formData.website,
+          hp_ref: formData.hp_ref,
         }),
       })
 
@@ -182,14 +183,14 @@ function ContactSection() {
 
             {/* Spam trap: hidden from people, often filled in by bots */}
             <div className="form-trap" aria-hidden="true">
-              <label htmlFor="website">Leave this field empty</label>
+              <label htmlFor="hp_ref">Leave this field empty</label>
               <input
                 type="text"
-                id="website"
-                name="website"
+                id="hp_ref"
+                name="hp_ref"
                 tabIndex="-1"
                 autoComplete="off"
-                value={formData.website}
+                value={formData.hp_ref}
                 onChange={handleChange}
               />
             </div>
@@ -293,6 +294,12 @@ function ContactSection() {
             >
               {submitting ? 'Sending…' : 'Submit Enquiry'} <span>→</span>
             </button>
+
+            <p className="form-consent">
+              By sending this enquiry you agree that LEWOCO may use your
+              details to reply to you. See our{' '}
+              <Link to="/privacy">Privacy Notice</Link>.
+            </p>
 
           </form>
 
