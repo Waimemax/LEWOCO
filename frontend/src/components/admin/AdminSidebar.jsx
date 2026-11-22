@@ -31,6 +31,13 @@ const navigation = [
     ],
   },
   {
+    title: 'SHOP',
+    links: [
+      { name: 'Orders', path: '/admin/orders', icon: '◈' },
+      { name: 'Products', path: '/admin/products', icon: '❖' },
+    ],
+  },
+  {
     title: 'SYSTEM',
     links: [
       { name: 'Reports', path: '/admin/reports', icon: '▥', roles: SUPER },

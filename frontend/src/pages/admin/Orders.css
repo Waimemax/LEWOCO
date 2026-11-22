@@ -1,0 +1,50 @@
+.status-pill.out { background: #FDECEC; color: #9A2B2B; margin-left: 6px; }
+
+.status-pill.pending { background: #FFF4DB; color: #8A5A00; }
+.status-pill.approved { background: #E3F0FA; color: #1D5A87; }
+.status-pill.delivered { background: #E8F2EB; color: #174C3C; }
+.status-pill.rejected { background: #FDECEC; color: #9A2B2B; }
+
+.check-row { display: flex; align-items: center; gap: 10px; font-weight: 500; cursor: pointer; }
+.check-row input { width: auto; }
+
+.order-lines {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+.order-lines th, .order-lines td { padding: 9px 12px; text-align: left; border-bottom: 1px solid #E6EBE6; }
+.order-lines th { color: #758078; font-size: 11px; letter-spacing: 0.6px; text-transform: uppercase; }
+.order-lines td:last-child, .order-lines th:last-child { text-align: right; }
+.order-lines tfoot td { font-weight: 700; border-bottom: 0; }
+
+.order-code {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: #F1F3F0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 0.5px;
+}
+
+.order-check {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #FFF9E8;
+  color: #6B4A00;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.btn-danger {
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 8px;
+  background: #B63A3A;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-danger:disabled { opacity: 0.6; cursor: not-allowed; }

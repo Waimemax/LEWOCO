@@ -7,6 +7,7 @@ use App\Mail\NewEnquiryMail;
 use App\Models\Enquiry;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 
@@ -44,8 +45,8 @@ class PublicEnquiryController extends Controller
     }
 
     /**
-     * Email LEWOCO about the new enquiry, after the visitor has already received their reply.
-     * A mail problem never affects the visitor: the enquiry is saved and the error is logged.
+     * Email LEWOCO about the new enquiry. The enquiry is already saved, so a mail
+     * problem never affects the visitor: the error is logged and the request carries on.
      */
     private function notifyStaff(Enquiry $enquiry): void
     {
@@ -55,12 +56,10 @@ class PublicEnquiryController extends Controller
             return;
         }
 
-        app()->terminating(function () use ($recipient, $enquiry) {
-            try {
-                Mail::to($recipient)->send(new NewEnquiryMail($enquiry));
-            } catch (\Throwable $exception) {
-                report($exception);
-            }
-        });
+        try {
+            Mail::to($recipient)->send(new NewEnquiryMail($enquiry));
+        } catch (\Throwable $exception) {
+            Log::error('Enquiry notification email failed: '.$exception->getMessage());
+        }
     }
 }

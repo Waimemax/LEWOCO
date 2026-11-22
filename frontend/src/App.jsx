@@ -8,6 +8,7 @@ import ProjectsSection from './components/layout/ProjectsSection'
 import NewsSection from './components/layout/NewsSection'
 import EventsSection from './components/layout/EventsSection'
 import ResourcesSection from './components/layout/ResourcesSection'
+import ShopSection from './components/layout/ShopSection'
 import ContactSection from './components/layout/ContactSection'
 import Footer from './components/layout/Footer'
 
@@ -16,6 +17,7 @@ import ProtectedRoute from './components/common/ProtectedRoute'
 import AdminLayout from './layouts/AdminLayout'
 import Dashboard from './pages/admin/Dashboard'
 import Login from './pages/admin/Login'
+import Privacy from './pages/Privacy'
 import Members from './pages/admin/Members'
 import Programmes from './pages/admin/Programmes'
 import Projects from './pages/admin/Projects'
@@ -23,6 +25,8 @@ import News from './pages/admin/News'
 import Events from './pages/admin/Events'
 import Resources from './pages/admin/Resources'
 import Enquiries from './pages/admin/Enquiries'
+import Products from './pages/admin/Products'
+import Orders from './pages/admin/Orders'
 import Reports from './pages/admin/Reports'
 import Settings from './pages/admin/Settings'
 import Account from './pages/admin/Account'
@@ -41,6 +45,7 @@ function PublicHome() {
         <AboutSection />
         <ProgrammesSection />
         <ProjectsSection />
+        <ShopSection />
         <NewsSection />
         <EventsSection />
         <ResourcesSection />
@@ -56,6 +61,7 @@ function App() {
     <AuthProvider>
       <Routes>
         <Route path="/" element={<PublicHome />} />
+        <Route path="/privacy" element={<Privacy />} />
 
         <Route path="/admin/login" element={<Login />} />
 
@@ -77,6 +83,8 @@ function App() {
             <Route path="events" element={<Events />} />
             <Route path="resources" element={<Resources />} />
             <Route path="enquiries" element={<Enquiries />} />
+            <Route path="products" element={<Products />} />
+            <Route path="orders" element={<Orders />} />
             <Route path="account" element={<Account />} />
 
             {/* Modules not built yet */}
