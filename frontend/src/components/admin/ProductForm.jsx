@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { api } from '../../lib/api'
 
 function ProductForm({ product, onClose, onSaved }) {
@@ -18,6 +18,45 @@ function ProductForm({ product, onClose, onSaved }) {
   const [errors, setErrors] = useState({})
   const [formError, setFormError] = useState('')
   const [saving, setSaving] = useState(false)
+
+  // Photo: the chosen file is uploaded after the product itself is saved
+  const [file, setFile] = useState(null)
+  const [preview, setPreview] = useState('')
+  const [removeImage, setRemoveImage] = useState(false)
+  const [photoError, setPhotoError] = useState('')
+
+  useEffect(() => {
+    if (!file) {
+      setPreview('')
+      return undefined
+    }
+    const url = URL.createObjectURL(file)
+    setPreview(url)
+    return () => URL.revokeObjectURL(url)
+  }, [file])
+
+  function handleFile(event) {
+    const chosen = event.target.files?.[0]
+    setPhotoError('')
+
+    if (!chosen) return
+
+    if (!['image/jpeg', 'image/png', 'image/webp'].includes(chosen.type)) {
+      setPhotoError('Please choose a JPG, PNG or WebP photo.')
+      event.target.value = ''
+      return
+    }
+    if (chosen.size > 2 * 1024 * 1024) {
+      setPhotoError('The photo must be 2 MB or smaller. Try a smaller or compressed version.')
+      event.target.value = ''
+      return
+    }
+
+    setFile(chosen)
+    setRemoveImage(false)
+  }
+
+  const shownImage = preview || (!removeImage ? product?.image_url : '')
 
   function handleChange(event) {
     const { name, value, type, checked } = event.target
@@ -46,7 +85,23 @@ function ProductForm({ product, onClose, onSaved }) {
       const data = editing
         ? await api(`/products/${product.id}`, { method: 'PUT', body })
         : await api('/products', { method: 'POST', body })
-      onSaved(data.message)
+
+      // The product is saved; now handle the photo. A photo problem must not lose the product.
+      let message = data.message
+      try {
+        if (file) {
+          const upload = new FormData()
+          upload.append('image', file)
+          await api(`/products/${data.product.id}/image`, { method: 'POST', body: upload })
+        } else if (removeImage && product?.image_url) {
+          await api(`/products/${data.product.id}/image`, { method: 'DELETE' })
+        }
+      } catch (photoProblem) {
+        const detail = photoProblem.errors?.image?.[0] || photoProblem.message
+        message = `${data.message} The photo could not be saved: ${detail} Open Edit to try again.`
+      }
+
+      onSaved(message)
     } catch (err) {
       setErrors(err.errors || {})
       setFormError(err.errors ? 'Please correct the highlighted fields.' : err.message)
@@ -130,6 +185,29 @@ function ProductForm({ product, onClose, onSaved }) {
                 <option value="published">Published (visible in the shop)</option>
               </select>
               {field('status') && <small>{field('status')}</small>}
+            </div>
+
+            <div className="field full">
+              <label htmlFor="photo">Photo</label>
+              {shownImage && (
+                <div className="photo-preview">
+                  <img src={shownImage} alt="Product preview" />
+                  <button
+                    type="button"
+                    className="btn-secondary"
+                    onClick={() => {
+                      setFile(null)
+                      setRemoveImage(true)
+                    }}
+                  >
+                    Remove photo
+                  </button>
+                </div>
+              )}
+              <input id="photo" type="file" accept="image/jpeg,image/png,image/webp" onChange={handleFile} />
+              <span className="hint">JPG, PNG or WebP, up to 2 MB. A landscape photo works best. Without a photo, the emoji icon is shown.</span>
+              {photoError && <small>{photoError}</small>}
+              {field('image') && <small>{field('image')}</small>}
             </div>
 
             <div className="field full">

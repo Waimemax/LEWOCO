@@ -11,15 +11,17 @@ export const setUnauthorizedHandler = (fn) => {
 
 export async function api(path, { method = 'GET', body } = {}) {
   const token = getToken()
+  const isForm = typeof FormData !== 'undefined' && body instanceof FormData
 
   const response = await fetch(`/api${path}`, {
     method,
     headers: {
       Accept: 'application/json',
-      ...(body ? { 'Content-Type': 'application/json' } : {}),
+      // For FormData (file uploads) the browser sets the content type itself
+      ...(body && !isForm ? { 'Content-Type': 'application/json' } : {}),
       ...(token ? { Authorization: `Bearer ${token}` } : {}),
     },
-    body: body ? JSON.stringify(body) : undefined,
+    body: body ? (isForm ? body : JSON.stringify(body)) : undefined,
   })
 
   const data = await response.json().catch(() => ({}))

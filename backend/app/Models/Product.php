@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -16,10 +17,14 @@ class Product extends Model
         'price',
         'unit',
         'icon',
+        'image_path',
         'in_stock',
         'display_order',
         'status',
     ];
+
+    /** Added to every JSON response so the website never needs to know about storage paths. */
+    protected $appends = ['image_url'];
 
     protected function casts(): array
     {
@@ -28,5 +33,12 @@ class Product extends Model
             'in_stock' => 'boolean',
             'display_order' => 'integer',
         ];
+    }
+
+    protected function imageUrl(): Attribute
+    {
+        return Attribute::get(
+            fn () => $this->image_path ? '/api/media/'.$this->image_path : null
+        );
     }
 }

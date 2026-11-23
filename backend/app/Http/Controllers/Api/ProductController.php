@@ -6,7 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 
 class ProductController extends Controller
 {
@@ -103,5 +106,57 @@ class ProductController extends Controller
                 : 'Product unpublished.',
             'product' => $product->fresh(),
         ]);
+    }
+
+    /**
+     * Upload or replace the product photo (JPG, PNG or WebP, up to 2 MB).
+     * The stored name is random, so nothing the uploader chooses ever reaches the file system.
+     */
+    public function uploadImage(Request $request, Product $product): JsonResponse
+    {
+        $request->validate([
+            'image' => ['required', 'file', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
+        ], [
+            'image.max' => 'The photo must be 2 MB or smaller.',
+            'image.image' => 'Please choose a JPG, PNG or WebP photo.',
+            'image.mimes' => 'Please choose a JPG, PNG or WebP photo.',
+            'image.uploaded' => 'The photo could not be uploaded. Please use a file under 2 MB.',
+        ]);
+
+        $file = $request->file('image');
+        $extension = $file->guessExtension() === 'jpeg' ? 'jpg' : $file->guessExtension();
+
+        if (! in_array($extension, ['jpg', 'png', 'webp'], true)) {
+            throw ValidationException::withMessages(['image' => ['Please choose a JPG, PNG or WebP photo.']]);
+        }
+
+        $name = Str::lower((string) Str::ulid()).'.'.$extension;
+        $file->storeAs('products', $name, 'public');
+
+        $this->deleteStoredImage($product);
+        $product->update(['image_path' => 'products/'.$name]);
+
+        return response()->json([
+            'message' => 'Photo saved.',
+            'product' => $product->fresh(),
+        ]);
+    }
+
+    public function deleteImage(Product $product): JsonResponse
+    {
+        $this->deleteStoredImage($product);
+        $product->update(['image_path' => null]);
+
+        return response()->json([
+            'message' => 'Photo removed.',
+            'product' => $product->fresh(),
+        ]);
+    }
+
+    private function deleteStoredImage(Product $product): void
+    {
+        if ($product->image_path) {
+            Storage::disk('public')->delete($product->image_path);
+        }
     }
 }

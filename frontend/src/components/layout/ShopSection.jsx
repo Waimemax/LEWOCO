@@ -182,7 +182,11 @@ function ShopSection() {
 
             return (
               <article className="shop-card" key={product.id}>
-                <div className="shop-icon"><span>{product.icon || '🛍️'}</span></div>
+                {product.image_url ? (
+                  <img className="shop-photo" src={product.image_url} alt={product.name} loading="lazy" />
+                ) : (
+                  <div className="shop-icon"><span>{product.icon || '🛍️'}</span></div>
+                )}
 
                 {product.category && <span className="shop-category">{product.category}</span>}
                 <h3>{product.name}</h3>

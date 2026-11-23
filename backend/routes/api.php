@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AnnouncementController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\DashboardController;
 use App\Http\Controllers\Api\EnquiryController;
+use App\Http\Controllers\Api\MediaController;
 use App\Http\Controllers\Api\MemberController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ProductController;
@@ -34,6 +35,11 @@ Route::middleware('throttle:60,1')->prefix('public')->group(function () {
     Route::get('/resources', [PublicResourceController::class, 'index']);
     Route::get('/products', [PublicProductController::class, 'index']);
 });
+
+// Uploaded photos (only plain file names with an image extension are accepted)
+Route::get('/media/products/{filename}', [MediaController::class, 'product'])
+    ->where('filename', '[A-Za-z0-9_-]+\.(?:jpg|png|webp)')
+    ->middleware('throttle:600,1');
 
 // Contact form: strict limit of 5 enquiries per 10 minutes per visitor.
 // Kept outside the group above so the two limits do not share a counter.
@@ -113,6 +119,8 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/products/{product}', [ProductController::class, 'show']);
         Route::put('/products/{product}', [ProductController::class, 'update']);
         Route::patch('/products/{product}/status', [ProductController::class, 'updateStatus']);
+        Route::post('/products/{product}/image', [ProductController::class, 'uploadImage']);
+        Route::delete('/products/{product}/image', [ProductController::class, 'deleteImage']);
 
         Route::get('/orders', [OrderController::class, 'index']);
         Route::get('/orders/{order}', [OrderController::class, 'show']);

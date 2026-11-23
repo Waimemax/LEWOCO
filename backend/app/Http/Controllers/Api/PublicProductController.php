@@ -17,7 +17,7 @@ class PublicProductController extends Controller
             ->where('status', Product::STATUS_PUBLISHED)
             ->orderBy('display_order')
             ->orderBy('id')
-            ->get(['id', 'name', 'category', 'description', 'price', 'unit', 'icon', 'in_stock']);
+            ->get(['id', 'name', 'category', 'description', 'price', 'unit', 'icon', 'image_path', 'in_stock']);
 
         $method = config('lewoco.mpesa.method') === 'paybill' ? 'paybill' : 'till';
 

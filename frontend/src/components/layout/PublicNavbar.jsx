@@ -23,6 +23,7 @@ function PublicNavbar() {
         <a href="#about">About Us</a>
         <a href="#programmes">Programmes</a>
         <a href="#projects">Our Projects</a>
+        <a href="#shop">Shop</a>
         <a href="#news">News</a>
         <a href="#resources">Resources</a>
         <a href="#contact">Contact</a>

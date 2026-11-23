@@ -142,7 +142,7 @@ function Products() {
             <thead>
               <tr>
                 <th>Position</th>
-                <th>Icon</th>
+                <th>Photo</th>
                 <th>Product</th>
                 <th>Price</th>
                 <th>Status</th>
@@ -167,7 +167,13 @@ function Products() {
               {products.map((product) => (
                 <tr key={product.id}>
                   <td className="mono">{product.display_order}</td>
-                  <td className="icon-cell">{product.icon || '—'}</td>
+                  <td className="icon-cell">
+                    {product.image_url ? (
+                      <img className="product-thumb" src={product.image_url} alt="" />
+                    ) : (
+                      product.icon || '—'
+                    )}
+                  </td>
                   <td>
                     <strong>{product.name}</strong>
                     {product.category && <small>{product.category}</small>}

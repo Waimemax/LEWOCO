@@ -75,6 +75,15 @@
 }
 .shop-icon span { font-size: 30px; }
 
+.shop-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background: #E8F2EB;
+}
+
 .shop-category {
   color: #39845F;
   font-size: 11px;
