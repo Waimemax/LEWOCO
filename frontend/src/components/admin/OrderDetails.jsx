@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { api } from '../../lib/api'
 import { formatKES } from '../../lib/money'
+import { useAuth } from '../../hooks/useAuth'
+import { confirmErase } from '../../lib/confirmErase'
+import '../../pages/admin/Danger.css'
 
 const formatDateTime = (value) =>
   value
@@ -15,6 +18,7 @@ const STATUS_LABELS = {
 }
 
 function OrderDetails({ order, onClose, onChanged }) {
+  const { user } = useAuth()
   const [notes, setNotes] = useState(order.admin_notes ?? '')
   const [rejecting, setRejecting] = useState(false)
   const [reason, setReason] = useState('')
@@ -54,6 +58,16 @@ function OrderDetails({ order, onClose, onChanged }) {
   function deliver() {
     if (!window.confirm(`Mark order ${order.reference} as delivered?`)) return
     run(() => api(`/orders/${order.id}/deliver`, { method: 'POST' }))
+  }
+
+  function erase() {
+    const warning =
+      order.status === 'approved' || order.status === 'delivered'
+        ? ` This order was ${order.status}, so deleting it also removes it from your sales records.`
+        : ''
+
+    if (!confirmErase(`Permanently delete order ${order.reference} from ${order.customer_name}?${warning}`)) return
+    run(() => api(`/orders/${order.id}`, { method: 'DELETE' }))
   }
 
   function saveNotes(event) {
@@ -196,6 +210,11 @@ function OrderDetails({ order, onClose, onChanged }) {
         )}
 
         <div className="modal-actions">
+          {user?.role === 'super_admin' && (
+            <button type="button" className="btn-danger-outline" onClick={erase} disabled={busy}>
+              Delete order
+            </button>
+          )}
           <button type="button" className="btn-secondary" onClick={onClose}>Close</button>
 
           {order.status === 'pending' && !rejecting && (

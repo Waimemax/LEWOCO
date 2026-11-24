@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import { api } from '../../lib/api'
+import { useAuth } from '../../hooks/useAuth'
+import { confirmErase } from '../../lib/confirmErase'
+import '../../pages/admin/Danger.css'
 
 const formatDateTime = (value) =>
   value
@@ -7,6 +10,7 @@ const formatDateTime = (value) =>
     : '—'
 
 function EnquiryDetails({ enquiry, onClose, onSaved }) {
+  const { user } = useAuth()
   const [status, setStatus] = useState(enquiry.status)
   const [notes, setNotes] = useState(enquiry.notes ?? '')
   const [error, setError] = useState('')
@@ -26,6 +30,21 @@ function EnquiryDetails({ enquiry, onClose, onSaved }) {
     } catch (err) {
       setError(err.errors ? Object.values(err.errors)[0][0] : err.message)
     } finally {
+      setSaving(false)
+    }
+  }
+
+  async function handleDelete() {
+    if (!confirmErase(`Permanently delete the enquiry from ${enquiry.full_name}?`)) return
+
+    setError('')
+    setSaving(true)
+
+    try {
+      const data = await api(`/enquiries/${enquiry.id}`, { method: 'DELETE' })
+      onSaved(data.message)
+    } catch (err) {
+      setError(err.message)
       setSaving(false)
     }
   }
@@ -94,8 +113,13 @@ function EnquiryDetails({ enquiry, onClose, onSaved }) {
           </div>
 
           <div className="modal-actions">
+            {user?.role === 'super_admin' && (
+              <button type="button" className="btn-danger-outline" onClick={handleDelete} disabled={saving}>
+                Delete
+              </button>
+            )}
             <a
-              className="btn-secondary reply-link"
+              className="btn-secondary reply-link" style={{ marginRight: user?.role === 'super_admin' ? 0 : undefined }}
               href={`mailto:${enquiry.email}?subject=${replySubject}`}
             >
               Reply by email

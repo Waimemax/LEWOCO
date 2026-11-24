@@ -1,0 +1,26 @@
+.btn-danger {
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 8px;
+  background: #B63A3A;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-danger:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btn-danger-outline {
+  padding: 10px 18px;
+  border: 1px solid #E3B4B4;
+  border-radius: 8px;
+  background: #fff;
+  color: #B63A3A;
+  font-weight: 700;
+  cursor: pointer;
+  margin-right: auto;
+}
+.btn-danger-outline:hover { background: #FDECEC; }
+.btn-danger-outline:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.row-actions button.danger { color: #B63A3A; }
+.row-actions button.danger:hover { background: #FDECEC; }

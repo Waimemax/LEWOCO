@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AnnouncementController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\DashboardController;
+use App\Http\Controllers\Api\DeletionController;
 use App\Http\Controllers\Api\EnquiryController;
 use App\Http\Controllers\Api\MediaController;
 use App\Http\Controllers\Api\MemberController;
@@ -65,6 +66,11 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::put('/members/{member}', [MemberController::class, 'update']);
         Route::patch('/members/{member}/status', [MemberController::class, 'updateStatus']);
 
+        // Permanent deletion of personal data: super administrator only
+        Route::delete('/members/{member}', [DeletionController::class, 'member']);
+        Route::delete('/enquiries/{enquiry}', [DeletionController::class, 'enquiry']);
+        Route::delete('/orders/{order}', [DeletionController::class, 'order']);
+
         // Reports and exports (contain personal information)
         Route::get('/reports', [ReportController::class, 'index']);
         Route::get('/reports/members.csv', [ReportController::class, 'membersCsv']);
@@ -121,6 +127,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::patch('/products/{product}/status', [ProductController::class, 'updateStatus']);
         Route::post('/products/{product}/image', [ProductController::class, 'uploadImage']);
         Route::delete('/products/{product}/image', [ProductController::class, 'deleteImage']);
+        Route::delete('/products/{product}', [DeletionController::class, 'product']);
 
         Route::get('/orders', [OrderController::class, 'index']);
         Route::get('/orders/{order}', [OrderController::class, 'show']);

@@ -6,6 +6,7 @@ import { formatKES } from '../../lib/money'
 import './Members.css'
 import './Programmes.css'
 import './Orders.css'
+import './Danger.css'
 
 function Products() {
   const [products, setProducts] = useState([])
@@ -80,6 +81,23 @@ function Products() {
         method: 'PATCH',
         body: { status: next },
       })
+      setNotice(data.message)
+      setReloadKey((key) => key + 1)
+    } catch (err) {
+      setError(err.message)
+    }
+  }
+
+  async function deleteProduct(product) {
+    if (
+      !window.confirm(
+        `Delete "${product.name}"? Orders already placed keep its name and price. To only hide it from the shop, use Unpublish instead.`
+      )
+    )
+      return
+
+    try {
+      const data = await api(`/products/${product.id}`, { method: 'DELETE' })
       setNotice(data.message)
       setReloadKey((key) => key + 1)
     } catch (err) {
@@ -191,6 +209,9 @@ function Products() {
                     <button type="button" onClick={() => openEdit(product)}>Edit</button>
                     <button type="button" onClick={() => togglePublished(product)}>
                       {product.status === 'published' ? 'Unpublish' : 'Publish'}
+                    </button>
+                    <button type="button" className="danger" onClick={() => deleteProduct(product)}>
+                      Delete
                     </button>
                   </td>
                 </tr>

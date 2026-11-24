@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import { api } from '../../lib/api'
 import MemberForm from '../../components/admin/MemberForm'
+import { confirmErase } from '../../lib/confirmErase'
 import './Members.css'
+import './Danger.css'
 
 const formatDate = (value) =>
   value
@@ -84,6 +86,20 @@ function Members() {
         method: 'PATCH',
         body: { status: next },
       })
+      setNotice(data.message)
+      setReloadKey((key) => key + 1)
+    } catch (err) {
+      setError(err.message)
+    }
+  }
+
+  async function eraseMember(member) {
+    const name = `${member.first_name} ${member.last_name}`
+
+    if (!confirmErase(`Permanently delete ${name} (${member.membership_number})?`)) return
+
+    try {
+      const data = await api(`/members/${member.id}`, { method: 'DELETE' })
       setNotice(data.message)
       setReloadKey((key) => key + 1)
     } catch (err) {
@@ -184,6 +200,9 @@ function Members() {
                     <button type="button" onClick={() => openEdit(member)}>Edit</button>
                     <button type="button" onClick={() => toggleStatus(member)}>
                       {member.status === 'active' ? 'Deactivate' : 'Activate'}
+                    </button>
+                    <button type="button" className="danger" onClick={() => eraseMember(member)}>
+                      Delete
                     </button>
                   </td>
                 </tr>
